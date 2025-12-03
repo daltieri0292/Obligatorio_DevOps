@@ -37,7 +37,7 @@ Debe contener 5 campos separados por “:” en el siguiente orden:
 En una misma linea para cada usuario.Si contiene más o menos campos, el script fallará.
 
 
-## 2-Script python para Despliegue Automatizado de Aplicación Web en AWS##
+## 2-Script python para Despliegue Automatizado de Aplicación Web en AWS ##
 -Despliega en forma automatizada una instancia de Amazon EC2 y una de RDS y despliega una aplicación web mediante el uso de una pila LAMP.
 
 
