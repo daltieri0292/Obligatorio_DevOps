@@ -185,6 +185,18 @@ for reservation in instances['Reservations']:
 if not instance_id:
     raise Exception("No se encontró ninguna instancia con el tag 'AplicacionWeb'.")
 
+#Esperamos a que la instancia de EC2 este en estado running (forma nativa con "waiter". anteriormente se había hecho revisando "DBInstanceStatus")
+print("Esperando a que la instancia de EC2 esté en running...")
+waiter = ec2.get_waiter('instance_running')
+waiter.wait(InstanceIds=[instance_id])
+print("Instancia EC2 en estado running.")
+
+# Obtener datos de la instancia
+desc = ec2.describe_instances(InstanceIds=[instance_id])
+instance = desc['Reservations'][0]['Instances'][0]
+
+public_ip = instance.get('PublicIpAddress')
+print(f"IP Pública asociada a la instancia de EC2: {public_ip}")
+
 print(f"SG {sg_id} asociado a la instancia {instance_id}")
 print("La aplicación está desplegada y lista. Espere unos minutos y navegue a la IP pública de la instancia para verificar el acceso web.")
-	
