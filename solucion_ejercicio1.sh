@@ -219,10 +219,10 @@ while IFS=: read -r nombre_usuario comentario directorio_home crear_directorio s
         # Mostrar info sólo si se pasó -i
         if [ $MostrarInfo -eq 1 ]; then
             echo "Usuario '$nombre_usuario' creado con éxito con los datos indicados."
-            echo " 	Comentario: $comentario_mostrar"
-            echo " 	Dir home: $directorio_home_mostrar"
-            echo " 	Asegurado existencia de directorio home: $crear_directorio_mostrar"
-            echo " 	Shell por defecto: $shell_mostrar"
+            echo "    Comentario: $comentario_mostrar"
+            echo "    Dir home: $directorio_home_mostrar"
+            echo "    Asegurado existencia de directorio home: $crear_directorio_mostrar"
+            echo "    Shell por defecto: $shell_mostrar"
         fi
     else
         # Mostrar error solo si se pasó -i
@@ -235,6 +235,7 @@ done < "$Archivo"
 
 if [ $MostrarInfo -eq 1 ]; then
 
-    echo "Se han creado $UsuariosCreados usuarios con éxito."
-            
+    echo
+    echo "Se han creado $UsuariosCreados usuarios con éxito."         
+
 fi
